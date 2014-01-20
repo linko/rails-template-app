@@ -1,0 +1,92 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    margin: 0 auto;
+    width: 1520px;
+    height: 280px;
+}
+
+.nav {
+    margin-top: 20px;
+    height: 50px;
+    width: 150px;
+    margin-left: 20px;
+}
+
+.nav a {
+    margin-right: 15px;
+    display: block;
+    float: left;
+    width: 30px;
+    height: 30px;
+}
+
+img {
+    margin-bottom: 27px;
+}
+
+a.nav-left {background: url("img/nav/nav_left.png");}
+
+a.nav-right {background: url("img/nav/nav_right.png");}
+
+.slider {
+    position: relative;
+    z-index: 1;
+    width: 1440px;
+    height: 280px;
+    overflow: hidden;
+}
+
+.column-1 {
+    height: 280px;
+    width: 220px;
+    display: block;
+    float: left;
+    margin-left: 20px;
+}
+
+.column-2 {
+    height: 280px;
+    width: 440px;
+    display: block;
+    float: left;
+    margin-left: 20px;
+}
+
+.column-2 img {
+    width: 440px;
+    height: 280px;
+}
+.row{
+    width: 220px;
+    height: 156px;
+}
+.row img{
+    width: 220px;
+    height: 126px;
+}
+
+/*MEDIA Q*/
+
+@media only screen and (min-width: 1520px) {
+    .content {width: 1520px;}
+    .slider {width: 1440px !important;}
+}
+
+@media (min-width: 1280px) and (max-width: 1520px) {
+    .content {width: 1280px;}
+    .slider {width: 1200px !important;}
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+    .content {width: 1024px !important;}
+    .slider {width: 960px;}
+}
+
+@media (max-width: 1024px) {
+    .content {width: 1024px;}
+    .slider {width: 960px !important;}
+}
