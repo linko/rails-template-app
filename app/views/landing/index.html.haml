@@ -1,2 +1,55 @@
 .row
-  %h1 Hello World
+  .col-xs-12
+    .content_wrapper
+      %h4 MOST POPULAR
+    #myCarousel.carousel.slide{"data-ride" => "carousel", "data-interval" => "false"}
+      .carousel-inner{:role => "listbox"}
+        .item.active
+          .big_thumbnail
+            %a.thumbnail{:href => "#x"}
+              %img.img-thumbnail.img-responsive{:alt => "Image", :src => ""}
+              .carousel-caption
+                %h6 Title or Name
+                %p Description
+          - 4.times do
+            .couple_thumbnail
+              - 2.times do
+                %a.thumbnail{:href => "#x"}
+                  %img.img-thumbnail.img-responsive{:alt => "Image", :src => ""}
+                  .carousel-caption
+                    %h6 Title or Name
+                    %p Description
+
+      %a.left.carousel-control.hide{"data-slide" => "prev", :href => "#myCarousel"} ‹
+      %a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel"} ›
+
+%script#slide{:type => "text/html"}
+  .item
+    - 6.times do
+      .couple_thumbnail
+        - 2.times do
+          %a.thumbnail{:href => "#x"}
+            %img.img-thumbnail.img-responsive{:alt => "Image", :src => ""}
+            .carousel-caption
+              %h6 Title or Name
+              %p Description
+
+%script#couple{:type => "text/html"}
+  .couple_thumbnail
+    - 2.times do
+      %a.thumbnail{:href => "#x"}
+        %img.img-thumbnail.img-responsive{:alt => "Image", :src => ""}
+        .carousel-caption
+          %h6 Title or Name
+          %p Description
+
+%script#big_thumbnail{:type => "text/html"}
+  .big_thumbnail
+    %a.thumbnail{:href => "#x"}
+      %img.img-thumbnail.img-responsive{:alt => "Image", :src => ""}
+      .carousel-caption
+        %h6 Title or Name
+        %p Description
+
+:javascript
+  var images = #{@img_path_array}
