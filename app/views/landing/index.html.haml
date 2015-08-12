@@ -50,13 +50,68 @@
 
 :css
   .content_wrapper .carousel-inner{
-    width: 1458px;
+    width: 1440px;
     margin: auto;
+  }
+  .item.active {
+    font-size: 0;
   }
 
 
 :javascript
+  function viewport() {
+      var e = window, a = 'inner';
+      if (!('innerWidth' in window )) {
+          a = 'client';
+          e = document.documentElement || document.body;
+      }
+      return { width : e[ a+'Width' ] , height : e[ a+'Height' ] };
+  }
   $(document).ready(function(){
+
+    $(window).on("load resize", function() {
+        switch (true) {
+            case (viewport().width >= 0 && viewport().width <= 1349):
+                //col_length = $(".item.active .couple_thumbnail").length;
+                //n = $(".item.active img").length%2 == 0 ? 4 : 2;
+                //while (col_length != n) {
+                //    $(".item.active .couple_thumbnail:last").remove();
+                //    col_length = $(".item.active .couple_thumbnail").length;
+                //}
+                break;
+            case (viewport().width >= 1350 && viewport().width <= 1599):
+                //col_length = $(".item.active .couple_thumbnail").length;
+                //couple = $($.parseHTML($("#couple").html()));
+                //n = $(".item.active img").length%2 == 0 ? 5 : 3;
+                //while (col_length != n) {
+                //    i = 2;
+                //    couple.find("img").each(function() {
+                //        $(this).attr('src', images[$.inArray($(".item.active .couple_thumbnail:last").find("img").first().attr('src'), images) + i]);
+                //        img_number = $.inArray($(this).attr('src'), images);
+                //        $(this).next(".carousel-caption").find("h6").text("Image #" + img_number);
+                //        i++;
+                //    });
+                //    col_length > n ? $(".item.active .couple_thumbnail:last").remove() : $(".item.active").append(couple);
+                //    col_length = $(".item.active .couple_thumbnail").length;
+                //}
+                break;
+            case (viewport().width >= 1600):
+                //couple = $($.parseHTML($("#couple").html()));
+                //col_length = $(".item.active .couple_thumbnail").length;
+                //n = $(".item.active img").length%2 == 0 ? 6 : 4;
+                //if (col_length < n) {
+                //    i = 2;
+                //    couple.find("img").each(function() {
+                //        $(this).attr('src', images[$.inArray($(".item.active .couple_thumbnail:last").find("img").first().attr('src'), images) + i]);
+                //        img_number = $.inArray($(this).attr('src'), images);
+                //        $(this).next(".carousel-caption").find("h6").text("Image #" + img_number);
+                //        i++;
+                //    });
+                //    $(".item.active").append(couple);
+                //}
+                break;
+        }
+    });
 
     for (i = 0; i < $(".item.active img").length; i++) {
         img = $(".item.active img").eq(i);
@@ -74,31 +129,31 @@
     right_arrow.click(function(){
       left_arrow.removeClass("hide");
       item = $(".item.active");
-      item.width($(".couple_thumbnail").width()*$(".couple_thumbnail").length + $(".big_thumbnail").width() + 85);
+      item.width($(".couple_thumbnail").width()*$(".couple_thumbnail").length + $(".big_thumbnail").width());
 
       //if (item.is(":animated")) {
-      //    return;
+      //  return;
       //}
 
-      n = $(".couple_thumbnail").outerWidth(true)*6 + 15;
+      n = $(".couple_thumbnail").outerWidth(true)*6;
       if ( item.outerWidth(true) + item.position().left - n > $(".carousel-inner").innerWidth()) {
           item.animate({
               "left":  "-="+n+"px"
           },50);
       }
       else if ( item.outerWidth(true) + item.position().left > $(".carousel-inner").innerWidth()) {
-        m = item.outerWidth(true) + item.position().left - $(".carousel-inner").innerWidth() - 25;
-        console.log("m= "+m);
+        m = item.outerWidth(true) + item.position().left - $(".carousel-inner").innerWidth();
         item.animate({
             "left": "-="+m+"px"
         },50);
         right_arrow.addClass("hide");
       }
+
     });
 
     left_arrow.click(function(){
         item = $(".item.active");
-        n = $(".couple_thumbnail").outerWidth(true)*6 + 15;
+        n = $(".couple_thumbnail").outerWidth(true)*6;
 
         //if (item.is(":animated")) {
         //  return;
