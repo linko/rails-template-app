@@ -44,11 +44,11 @@
   }
   .carousel-inner {
     height: auto;
-    width: auto;
-    margin: 0 35px;
+    margin: auto;
     text-align: center;
     .item {
       height: 285px;
+      font-size: 0;
       &.active {
         display: inline-block;
         overflow: hidden;
@@ -72,20 +72,28 @@
 }
 
 @media (min-width: 1600px) {
-  .item, .nav_wrapper, .content_wrapper h4{
-    width: 1462px;
+  .carousel-inner, .content_wrapper h4, .nav_wrapper {
+    width: 1440px;
   }
 }
 
 @media (min-width: 1350px) and (max-width: 1599px) {
-  .item, .nav_wrapper, .content_wrapper h4 {
-    width: 1218px;
+  .carousel-inner, .content_wrapper h4, .nav_wrapper {
+    width: 1200px;
   }
 }
 
 @media (max-width: 1349px) {
-  .item, .nav_wrapper, .content_wrapper h4 {
-    width: 974px;
+  .carousel-inner, .content_wrapper h4, .nav_wrapper {
+    width: 960px;
+  }
+  .carousel-control {
+    &.left {
+      left: 0 !important;
+    }
+    &.right {
+      right: 0 !important;
+    }
   }
 }
 
@@ -99,7 +107,7 @@
 }
 
 .navbar.navbar-inverse {
-  min-width: 1024px;
+  min-width: 1026px;
 }
 
 .navbar-header {
