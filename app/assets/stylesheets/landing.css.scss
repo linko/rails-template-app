@@ -1,3 +1,130 @@
 // Place all the styles related to the landing controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.content_wrapper {
+  max-width: 1600px;
+  min-width: 1024px;
+  width: auto;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+  .big_thumbnail, .couple_thumbnail {
+    display: inline-block;
+    height: auto;
+    .thumbnail {
+      margin-right: 20px;
+      margin-bottom: 20px;
+      padding: 0;
+      border: none;
+      position: relative;
+      .carousel-caption {
+        left: 10px;
+        padding-bottom: 0;
+        bottom: 0;
+        width: 50%;
+        text-align: left;
+        p {
+          font-size: 12px;
+          margin-top: -5px;
+        }
+      }
+    }
+  }
+  .big_thumbnail {
+    img {
+      width: 460px;
+      height: 268px;
+    }
+  }
+  .couple_thumbnail {
+    img {
+      width: 220px;
+      height: 124px;
+    }
+  }
+  .carousel-inner {
+    height: auto;
+    margin: auto;
+    text-align: center;
+    .item {
+      height: 285px;
+      font-size: 0;
+      &.active {
+        display: inline-block;
+        overflow: hidden;
+      }
+
+    }
+  }
+  .carousel-control {
+    width: 30px;
+    position: absolute;
+    height: 268px;
+    font-size: 70px;
+    line-height: 258px;
+    &.left {
+      left: 10px;
+    }
+    &.right {
+      right: 10px;
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .carousel-inner, .content_wrapper h4, .nav_wrapper {
+    width: 1440px;
+  }
+}
+
+@media (min-width: 1350px) and (max-width: 1599px) {
+  .carousel-inner, .content_wrapper h4, .nav_wrapper {
+    width: 1200px;
+  }
+}
+
+@media (max-width: 1349px) {
+  .carousel-inner, .content_wrapper h4, .nav_wrapper {
+    width: 960px;
+  }
+  .carousel-control {
+    &.left {
+      left: 0 !important;
+    }
+    &.right {
+      right: 0 !important;
+    }
+  }
+}
+
+.nav_wrapper {
+  margin: 0 auto;
+}
+
+.content_wrapper h4 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar.navbar-inverse {
+  min-width: 1026px;
+}
+
+.navbar-header {
+  button.navbar-toggle {
+    position: fixed;
+    right: 30px;
+  }
+}
+
+@media (max-width: 1045px) {
+  .content_wrapper h4 {
+    margin-left: 35px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1045px) {
+  .nav_wrapper {
+    margin-left: 35px;
+  }
+}

@@ -1,2 +1,27 @@
 .row
-  %h1 Hello World
+  .col-xs-12
+    .content_wrapper
+      %h4 MOST POPULAR
+    #myCarousel.carousel.slide{"data-ride" => "carousel", "data-interval" => "false"}
+      .carousel-inner{:role => "listbox"}
+        .item.active
+          .big_thumbnail
+            %a.thumbnail{:href => "#x"}
+              %img.img-thumbnail.img-responsive{:alt => "Image", :src => ""}
+              .carousel-caption
+                %h6 Title or Name
+                %p Description
+          - 19.times do
+            .couple_thumbnail
+              - 2.times do
+                %a.thumbnail{:href => "#x"}
+                  %img.img-thumbnail.img-responsive{:alt => "Image", :src => ""}
+                  .carousel-caption
+                    %h6 Title or Name
+                    %p Description
+
+      %a.left.carousel-control.hide{"data-slide" => "prev", :href => "#myCarousel"} ‹
+      %a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel"} ›
+
+:javascript
+  var images = #{@img_path_array}
